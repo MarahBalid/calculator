@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>الحاسبة الهندسية</title>
+        <meta name='viewport' content='width=device-width, initial-scale=0 ,maximum-scale=0, user-scalable=no'>
+        <meta name="author" content="Marah Balid">
+        <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript" src="javascript.js"></script>
+       
+    </head>
+    <body id="body">
+        <div style="display: block" id="page1">
+            <h1> من فضلك قم بإدخال <br> أبعاد الأرض</h1>
+            <div id="inputs">
+                <div id="length">
+                    <div id="counter">        
+                        <button id="Li" class="  btn-countinc" data-increase1>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-L" data-value1 type="text" class="number" >
+                        <input id="input-L-hide" type="hidden" class="number">
+                        <button id="Ld" class="  btn-countdec" data-decrease1>-</button>
+                    </div>
+                    <span>  : الطول</span>
+                </div>
+                <div id="width"> 
+                    <div id="counter"> 
+                        <button id="Wi" class="btn-countinc" data-increase1>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="width" id="input-W" data-value1   type="text " class="number">
+                         <input id="input-W-hide" type="hidden" class="number">
+                        <button id="Wd" class="btn-countdec" data-decrease1>-</button>
+                    </div>  
+                    <span>  : العرض</span>
+                </div> 
+                <div id="result">
+                    <input id="input-result-hidden" type="hidden" class="number">
+                    <p id="result-placeholder" > </p></div>
+                    <input id="flag-functions" type="hidden">
+            </div>
+        
+        <footer>
+            <div id="div-next">
+                <div id="counter"> 
+                        <i id="next-page1" onclick="show_main_div(this.id)"  class="fas fa-arrow-alt-circle-left"></i>
+                    
+                    <p id="next-p"> التالي</p>
+                </div>
+            </div>
+        </footer>
+        </div>
+        
+        <!-----    Page 2 -------->
+        <div style="display: none" id="page2">
+            
+            <h1>ماهي أطوال الجهات التي <br> تطل على الشارع في أرضك</h1>
+        
+            <div id="buttons"> 
+                <button id="1" class="btn btn-info" ></button>
+                <button id="2" class="btn btn-info" ></button>
+                <button id="3"class="btn btn-info"  ></button>
+                <button id="4" class="btn btn-info" ></button>   
+            </div>
+            
+            <div>
+                <p id="placeholder-page2"></p>
+                <input id="num-str-hidden" type="hidden">
+                <input id="vl-hidden" type="hidden">
+            </div>
+            
+            <div id="result-praghragh-page2">
+                <input id="btnval" type="hidden">
+                <input id="result" type="hidden">
+            </div>
+            <footer>
+                <div id="div-next-pre">
+                    <div id="counter"> 
+                            <i id="next-page2" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                        <p id="next-p"> التالي</p>
+                    </div>
+                    <div id="counter"> 
+                        <p id="pre-p"> السابق</p>
+                            <i id="pre-page2" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+        <!-----    Page 3 -------->
+        <div style="display: none" id="page3">
+             
+            <h1>مانوع الفيلا <br> التي تريد بناءها ؟</h1>
+            <div id="buttons">
+              <img id="circle" class="img-responsive icon1" src="./images/big-house2.png" alt="big house icon">     
+                <img id="circle" class="img-responsive icon2" src="./images/home.png" alt="home icon" >     
+            </div>
+            <div id="span-container">
+                <span id="span">  فيلا دورين  </span>
+                <span id="span"> فيلا دور واحد  </span>
+            </div>
+            <input id="flag3" type="hidden">
+            <footer>
+                <div id="div-next-pre">
+                    <div id="counter"> 
+                        <i id="next-page3" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                        <p id="next-p"> التالي</p>
+                    </div>
+                    <div id="counter"> 
+                        <p id="pre-p"> السابق</p>
+                        <i id="pre-page3" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-----    Page 4 -------->
+        <div style="display: none" id="page4">
+                
+                <h1>من فضلك <br> ادخل مساحة الدور الأرضي</h1>
+                <div id="length">
+                    <div id="counter">        
+                        <button class="  btn-countinc" data-increase2>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-L" data-value2   type="text" class="number">
+                        <input id="input-L" type="hidden">
+                        <input id="Max-L-page4" type="hidden">
+                        <button  class="btn-countdec" data-decrease2>-</button>
+                    </div> 
+                </div>
+                <div>
+                    <input id="input-A0" type="hidden">
+                    <p id="placeholder1" > 
+                        
+                </p>
+                </div>
+                <footer>
+                    <div id="div-next-pre">
+                        <div id="counter"> 
+                            <i id="next-page4" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                            <p id="next-p"> التالي</p>
+                        </div>
+                        <div id="counter"> 
+                            <p id="pre-p"> السابق</p>
+                            <i id="pre-page4" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        <!-----    Page 5 -------->
+        
+        <div style="display: none" id="page5">
+                
+                <h1>من فضلك <br> ادخل مساحة الدور العلوي</h1>
+                <div id="length">
+                    <div id="counter">        
+                            <button  class="  btn-countinc" data-increase3>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-L" data-value3   type="text" class="number">
+                        <button  class="  btn-countdec" data-decrease3>-</button>
+                    </div> 
+                </div>
+                <div>
+                   
+                    <input id="input-A1" type="hidden">
+                     <p id="placeholder2" >  </p>
+
+                </div>
+                <footer>
+                    <div id="div-next-pre">
+                        <div id="counter"> 
+                            <i id="next-page5" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                            <p id="next-p"> التالي</p>
+                        </div>
+                        <div id="counter"> 
+                            <p id="pre-p"> السابق</p>
+                            <i id="pre-page5" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        <!-----    Page 6 -------->
+        <div style="display: none" id="page6">
+                
+                <h1>هل ترغب ببناء ملحق علوي ؟</h1>
+                <div id="buttons">
+                    <img id="circle" class="img-responsive icon1 wrong" src="./images/wrong.png" alt=" icon"> 
+                    <img id="circle" class="img-responsive icon2  true" src="./images/true.png" alt="true icon">
+                </div>
+                <div id="span-container">
+                    <span id="no-sign"> لا  </span>
+                    <span id="true-sign">  نعم  </span>
+                </div>
+             <input id="flag6" type="hidden">
+                <footer>
+                    <div id="div-next-pre">
+                        <div id="counter"> 
+                            <i id="next-page6" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                            <p id="next-p"> التالي</p>
+                        </div>
+                        <div id="counter"> 
+                            <p id="pre-p"> السابق</p>
+                            <i id="pre-page6" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                        </div>
+                    </div>
+                </footer>
+                
+        </div>
+        <!-----    Page 7 -------->
+        <div style="display: none" id="page7">
+                
+                <h1>من فضلك <br> ادخل مساحة الملحق العلوي </h1>
+        
+                <div id="length">
+                    <div id="counter">        
+                        <button  class="  btn-countinc" data-increase4>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-L" data-value4   type="text" class="number">
+                         <input id="input-L7" type="hidden">
+                        <input id="Max-L-page7" type="hidden">
+                        <button  class="  btn-countdec" data-decrease4>-</button>
+                    </div> 
+                </div>
+                <div>
+                     <input id="input-A2" type="hidden">
+                    <p id="placeholder3" >   </p>
+                </div>
+                <footer>
+                    <div id="div-next-pre">
+                        <div id="counter"> 
+                            <i id="next-page7" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                            <p id="next-p"> التالي</p>
+                        </div>
+                        <div id="counter"> 
+                            <p id="pre-p"> السابق</p>
+                            <i id="pre-page7" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                        </div>
+                    </div>
+                </footer>
+                
+        </div>
+        <!-----    Page 8 -------->
+        <div style="display: none" id="page8">
+                
+                <h1>هل ترغب ببناء قبو ؟ <br> (بدروم)</h1>
+        
+                <div id="buttons">
+                    <img id="circle" class="img-responsive icon1 wrong" src="./images/wrong.png" alt=" icon"> 
+                    <img id="circle" class="img-responsive icon2  true" src="./images/true.png" alt="true icon">
+                </div>
+        
+                <div id="span-container">
+                    <span id="no-sign"> لا  </span>
+                    <span id="true-sign">  نعم  </span>
+                </div>
+                <input id="flag8" type="hidden">
+                <footer>
+                    <div id="div-next-pre">
+                        <div id="counter"> 
+                            <i id="next-page8" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                            <p id="next-p"> التالي</p>
+                        </div>
+                        <div id="counter"> 
+                            <p id="pre-p"> السابق</p>
+                            <i id="pre-page8" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                        </div>
+                    </div>
+                     
+                </footer>
+            </div>
+        <!-----    Page 9 -------->
+        <div style="display: none" id="page9">
+                
+                <h1>من فضلك <br> ادخل مساحة القبو</h1>
+        
+                <div id="length">
+                    <div id="counter">        
+                        <button  class="  btn-countinc" data-increase5>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-L" data-value5  type="text" class="number">
+                        <input id="Max-L-page9" type="hidden">
+                        <button  class="  btn-countdec" data-decrease5>-</button>
+                    </div> 
+                </div>
+        
+                <div>
+                    <input id="input-A3" type="hidden">
+                    <p id="placeholder4" >   </p>
+                </div>
+                
+                <footer>
+                    <div id="div-next-pre">
+                        <div id="counter"> 
+                            <i id="next-page9" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                            <p id="next-p"> التالي</p>
+                        </div>
+                        <div id="counter"> 
+                            <p id="pre-p"> السابق</p>
+                            <i id="pre-page9" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                        </div>
+                    </div>
+                </footer>  
+        </div>
+        <!-----    Page 10 -------->
+        <div style="display: none" id="page10">
+            <h1> من فضلك  <br>ادخل أبعاد خزان المياه الأرضي</h1>
+            <div id="inputs">
+                <div id="length">
+                    <div id="counter">        
+                        <button id="Lwi" class="  btn-countinc" data-increase6>+</button>
+                          <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-Lw" data-value6 type="text"   class="number">
+                        <input id="input-Lw1-hide" type="hidden">
+                        <button id="Lwd" class="  btn-countdec" data-decrease6>-</button>
+                    </div>
+                    <span>  : الطول</span>
+                </div>
+                <div id="width"> 
+                    <div id="counter"> 
+                        <button id="Wwi" class="btn-countinc" data-increase6>+</button>
+                          <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-Ww" data-value6 type="text"  class="number">
+                        <input id="input-Ww-hide" type="hidden">
+                        <button id="Wwd" class="btn-countdec" data-decrease6>-</button>
+                    </div>  
+                    <span>  : العرض</span>
+                </div> 
+                <div id="result">
+                    <input id="volum-GroundTank" type="hidden">
+                    <p id="placeholder5" > </p></div>
+            </div>
+            
+            <footer>
+                <div id="div-next-pre">
+                    <div id="counter"> 
+                        <i id="next-page10" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                        <p id="next-p"> التالي</p>
+                    </div>
+                    <div id="counter"> 
+                        <p id="pre-p"> السابق</p>
+                        <i id="pre-page10" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                    </div>
+                </div>
+            </footer> 
+        </div>
+        <!-----    Page 11 -------->
+        <div style="display: none" id="page11">
+            
+            <h1> من فضلك  <br>ادخل أبعاد بيارة الصرف</h1>
+            <div id="inputs">
+                <div id="length">
+                    <div id="counter">        
+                        <button id="Lsi" class="  btn-countinc" data-increase7>+</button>
+                       <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-Ls" data-value7 type="text"   class="number">
+                        <input id="input-Ls-hide" type="hidden">
+                        <button id="Lsd" class="  btn-countdec" data-decrease7>-</button>
+                    </div>
+                    <span>  : الطول</span>
+                </div>
+                <div id="width"> 
+                    <div id="counter"> 
+                        <button id="Wsi" class="btn-countinc" data-increase7>+</button>
+                        <input oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" name="length"  id="input-Ws" data-value7 type="text"  class="number" >    
+                         <input id="input-Ws-hide" type="hidden">
+                        <button id="Wsd" class="btn-countdec" data-decrease7>-</button>
+                    </div>  
+                    <span>  : العرض</span>
+                </div> 
+                <div id="result"> 
+                    <input id="volum-Drainage" type="hidden">
+                    <p id="placeholder6" > </p></div>
+            </div>  
+            <footer>
+                <div id="div-next-pre">
+                    <div id="counter"> 
+                        <i id="next-page11" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-left"></i>
+                        <p id="next-p"> التالي</p>
+                    </div>
+                    <div id="counter"> 
+                        <p id="pre-p"> السابق</p>
+                        <i id="pre-page11" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                    </div>
+                </div>
+            </footer> 
+        </div>
+        
+        <!-----    Page  Results -------->
+        <div style="display: none" id="page12">
+            <h1 class="h1-p-result">  صفحة النتائج   </h1>
+            <input id="Frame" type="hidden">
+            <input id="A0" type="hidden">
+            <input id="A1" type="hidden">
+            <input id="A2" type="hidden">
+            <input id="A3" type="hidden">
+            <input id="A4" type="hidden">
+            <input id="A5" type="hidden">
+            <input id="A6" type="hidden">
+            <input id="Aw" type="hidden">
+            <input id="As" type="hidden">
+            <input id="total_price" type="hidden">
+            <div id="Dialoug">
+                <div id="s1-L">      
+                    <div id="Dialoug">
+                        <div id="dialoug-result"></div>
+                    </div>
+                    <div>
+                        <h2 id="h2-dialog"> هل تحتاج إلى مقاول ؟</h2>
+                        <h3 id="h3-dialog"> !لا تهتم</h3>
+                        <p id="p-dialog">    يوفر لك مكتمل عشرات المقاولين المؤهلين لتنفيد منزل <br> أحلامك بأفضل الكفاءات وأنسب الأسعار </p>
+                    </div>  
+                    <div id="Dialoug">
+                        <button class="button btn-red "> ابحث عن مقاول </button>
+                    </div>
+                </div>
+                <div id="s1-R">  
+                    <div  class="container" id="div-button">
+                        <div  class="row" >
+                            <h2 class="h2-p-result"> التكاليف التقديرية </h2>
+                            <div id="buttons1" class="col-lg-6">
+                                <button type="button" id="1" class="btn1 btn-info1">تشطيب <br> عادي</button>
+                                <button type="button" id="2" class="btn1 btn-info1">تشطيب <br> تجاري</button>
+                                <button type="button" id="3" class="btn1 btn-info1">بناء <br> عظم</button>
+                
+                            </div>
+                            <div id="buttons1" class="col-lg-6">
+                                <button type="button" id="4" class="btn1 btn-info1">تشطيب <br> هاي كلاس</button>
+                                <button type="button" id="5" class="btn1 btn-info1">تشطيب <br> سوبر لوكس</button>
+                                <button type="button" id="6" class="btn1 btn-info1">تشطيب <br> لوكس</button>
+                 
+                            </div>
+                            <div id="div-show " onclick= "show1()"  >
+                                <div id="Dialoug">
+                                    <span style="display: block" id="show" class="span-show-hide"> إظهار تفاصيل الأسعار ومواصفات التشطيب </span>
+                                    <img style="display: block"id="upArrow" src="./images/down-arrow1.png" alt="up arrow">
+                                </div>
+                            </div> 
+                            <div id="div-hide"  onclick= "hide1()"  >
+                                <div id="Dialoug">
+                                    <span style="display: none" id="hide" class="span-show-hide"> إخفاء تفاصيل الأسعار ومواصفات التشطيب </span>
+                                    <img style="display: none" id="downArrow" src="./images/up-arrow%20(1).png" alt="up arrow">
+                                </div>
+                            </div> 
+                        </div>      
+                    </div>
+                </div> 
+            </div>
+            <div  id="Dialoug">
+                <div style="display: none"  id="block-result1">
+                    <div id="Dialoug">
+                        <div id="L">
+                            <p id="span2-details-prices">   تكاليف السور : 265,600 ريال  </p>
+                            <div class="line"></div>  
+                            <p id="span2-details-prices">   تكاليف سور السطح : 265,600 ريال  </p>
+                            <div class="line"></div>      
+                            <p id="span2-details-prices">   تكاليف خزان المياه: 265,600 ريال  </p>
+                            <div class="line"></div>  
+                            <p id="span2-details-prices">   تكاليف بيارة الصرف : 265,600 ريال  </p>
+                        </div>
+                        <div id="R">
+                            <p id="span1-details-prices">  تفاصيل الأسعار </p>
+                            <p id="span2-details-prices">   تكاليف الطابق الأرضي   : 265,600 ريال  </p>
+                            <div class="line"></div>  
+                            <p id="span2-details-prices">   تكاليف الطابق الأول  : 265,600 ريال  </p>
+                            <div class="line"></div>  
+                            <p id="span2-details-prices">   تكاليف الملحق : 265,600 ريال  </p>
+                            <div class="line"></div>  
+                            <p id="span2-details-prices">   تكاليف القبو   : 265,600 ريال  </p>
+                            <div class="line"></div>  
+                            <p id="span2-details-prices">   تكاليف الفناء الخارجي : 265,600 ريال  </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Dialoug">
+                <div style="display: none" id="block-result2">
+                    <h1 style="padding:0px">مواصفات التشطيب العادي</h1>
+                    <span id="span3-details-prices" dir="rtl">1. إرتفاعات السقف 3,3  م .</span> 
+                    <span style=" text-align: match-parent" id="span3-details-prices" dir="rtl"> 2. تأسيسات  الصرف من نوعية الخليج . </span><br>    <span  id="span3-details-prices" dir="rtl"> 3.تأسيسات التغدية للمياه من نوعية الخليج  PVC مع تركيب خزان علوي فايبر جالس .  </span><br> <span  id="span3-details-prices" dir="rtl"> 4. تأسيسات الكهرباء من مواسير PVC إلترا , والسالك من نوعية الفنار , والطبلونات من نوع إلترا .</span><br> <span  id="span3-details-prices" dir="rtl"> 5. الأسقف المستعارة من النوع البلدي سماكة اسم للمجالس والصالونات .</span><br> <span  id="span3-details-prices" dir="rtl"> 6.الدهانات من نوعية وطنية جيدة (روز,الشبح)  ... </span><br> <span  id="span3-details-prices" dir="rtl"> 7.  أعمال تكسية الأرضيات من السيراميك أو البورسلان من نوعية إماراتي أو صيني بسعر 45 ريال متر مربع   </span><br><span  id="span3-details-prices" dir="rtl"> 8. الأبواب : جميع أبواب الغرف من نوع الخشب السويدي مع عمل الباب الرئيسي من نوع خشب الميرينتي .  </span><br><span  id="span3-details-prices" dir="rtl"> 9. الشبابيك : من الأمونيوم سرايا دبل جلاس عاكس . </span><br><span  id="span3-details-prices" dir="rtl"> 10. الأدوات الصحية : المغاسل الخارجية والداخلية وكراسي الحمامات من نوعبة الخزف السعودي او الخزفية .  </span><br><span  id="span3-details-prices" dir="rtl"> 11. الأدوات الكهربائية : إضاءات مخفية من نوعية  LED للمجالس والصالات , سبوت لايتس من نوعية   </span><br><span  id="span3-details-prices" dir="rtl"> LED للمجالس والصالات ,مفاتيح وأفياش من نوعية سيكو . مرواح شفط عادية من نوعية TMT .  </span><br>
+                    <span  id="span3-details-prices" dir="rtl"> 12 . الواجهات : تكسية الواجهات بمادة البروفايل (الجرافيتو) مع عمل إطارات من الحجر.)  </span>
+                  
+                    <span  id="span3-details-prices" dir="rtl"><br> أعمال لا تشملها المقاولة :   </span><br>
+                    <span id="span3-details-prices" dir="rtl">1.أعمال التدعيم والتجفيف : حيث تكون بعقد مفصل حسب حاجة المشروع .</span><br>
+                    <span id="span3-details-prices" dir="rtl">2.المصعد: حيث يتم التعاقد بين المالك ومورد المصاعد مباشرة مع التزامنا بتنفيد الأعمال المدنية اللازمة . </span><br>
+                    <span id="span3-details-prices" dir="rtl">3.التكييف : حيث يتم التعاقد بين المالك ومورد المصاعد مباشرة مع التزامنا بتنفيد الأعمال المدنية اللازمة.           </span><br>
+                    <span id="span3-details-prices" dir="rtl">4.الحدائق: حيث يتم التعاقد بين المالك ومورد المصاعد مباشرة مع التزامنا بتنفيد الأعمال المدنية اللازمة.</span>    <br>
+                    <span id="span3-details-prices" dir="rtl">5.المسابح : يتم احتساب تكلفة تنفيد المسبح حسب نوعيته ومساحته ,ويتم إضافتها لقيمة المقاولة .</span>
+                </div>  
+            </div>
+             
+            <footer>
+                <div id="div-pre">
+                    <div id="counter"> 
+                        <p id="pre-p"> السابق</p>
+                        <i id="pre-page12" onclick="show_main_div(this.id)" class="fas fa-arrow-alt-circle-right"></i>  
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body> 
+</html>
